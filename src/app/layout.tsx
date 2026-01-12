@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Wallet Auth Flow | Web3Proof Challenge",
   description: "Build production-ready wallet authentication",
 };
-
-// TODO: Add your wallet providers here
-// import { WagmiProvider } from 'wagmi'
-// import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
-// import { QueryClientProvider } from '@tanstack/react-query'
 
 export default function RootLayout({
   children,
@@ -18,15 +14,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      </head>
       <body>
-        {/* TODO: Wrap with providers */}
-        {/* <WagmiProvider config={config}> */}
-        {/*   <QueryClientProvider client={queryClient}> */}
-        {/*     <RainbowKitProvider> */}
-                {children}
-        {/*     </RainbowKitProvider> */}
-        {/*   </QueryClientProvider> */}
-        {/* </WagmiProvider> */}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
